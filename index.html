@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tone-Blast | Abrasive Blasting & Painting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brand-yellow: #e6b333;
+      --brand-dark: #1f1f1f;
+      --bg-light: #fffdf2;
+      --text-main: #222;
+      --text-muted: #666;
+      --radius: 12px;
+      --shadow-soft: 0 10px 25px rgba(0,0,0,0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: var(--brand-yellow);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: var(--brand-dark);
+    }
+
+    .logo-text {
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    nav a.active,
+    nav a:hover {
+      background: var(--brand-yellow);
+      color: #000;
+    }
+
+    .hero {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.5)),
+                  url("images/hero-sandblasting.jpg") center/cover no-repeat;
+      color: #fff;
+      padding: 5rem 1.5rem 4rem;
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      gap: 2rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      max-width: 540px;
+      color: #e8e8e8;
+    }
+
+    .hero-actions {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: var(--brand-yellow);
+      color: #000;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.6);
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .section-heading {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 1.5rem;
+      border-top: 4px solid var(--brand-yellow);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.1rem;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      background: var(--brand-dark);
+      color: #eee;
+      padding: 2.5rem 1.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner h4 {
+      margin-bottom: 0.75rem;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .footer-bottom {
+      max-width: 1120px;
+      margin: 1.5rem auto 0;
+      font-size: 0.8rem;
+      color: #aaa;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <div class="logo-mark">TB</div>
+      <div class="logo-text">Tone-Blast</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Abrasive Blasting & Industrial Painting Specialists</h1>
+      <p>
+        Tone-Blast Engineering provides high-quality abrasive blasting and protective coatings
+        with fast turnaround times and over 25 years of industry experience.
+      </p>
+      <div class="hero-actions">
+        <a href="#services" class="btn btn-primary">View Services</a>
+        <a href="#contact" class="btn btn-outline">Request a Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section id="services">
+    <h2 class="section-heading">Services at a Glance</h2>
+    <div class="services-grid">
+      <article class="service-card">
+        <h3>Abrasive Blasting</h3>
+        <p>Steel grit blasting for thorough cleaning and profiling of metal surfaces before coating.</p>
+      </article>
+      <article class="service-card">
+        <h3>Industrial Painting</h3>
+        <p>Application of a wide range of industrial paints and coatings to your specifications.</p>
+      </article>
+      <article class="service-card">
+        <h3>Expert Delivery</h3>
+        <p>Reliable turnaround times and consistent quality for projects up to 7&nbsp;m in length.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- You’ll later add a short “About”/“Why choose us” here, plus maybe a small gallery -->
+  
+  <section id="contact" style="margin-top:3rem;">
+    <h2 class="section-heading">Contact Tone-Blast</h2>
+    <!-- You can later swap this for a real form / embed -->
+    <p>For quotations or enquiries, please contact Gordon Tonetti at
+      <a href="mailto:gordon@toneblast.co.za">gordon@toneblast.co.za</a> or call 011&nbsp;452&nbsp;6713.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>About Tone-Blast</h4>
+      <p>Established in 1972, Tone-Blast Engineering offers abrasive blasting and industrial painting services with a reputation for quality standards and fast turnaround times.</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Tel: 011 452 6713<br>
+         Fax: 011 609 1916<br>
+         Email: <a href="mailto:gordon@toneblast.co.za" style="color:var(--brand-yellow);">gordon@toneblast.co.za</a></p>
+    </div>
+    <div>
+      <h4>Location</h4>
+      <p>42 Plantation Road, Eastleigh<br>Edenvale, Johannesburg</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Tone-Blast. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>

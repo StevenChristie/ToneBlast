@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Services | Tone-Blast Engineering</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brand-yellow: #e6b333;
+      --brand-dark: #1f1f1f;
+      --bg-light: #fffdf2;
+      --text-main: #222;
+      --text-muted: #666;
+      --radius: 14px;
+      --shadow-soft: 0 16px 40px rgba(0,0,0,0.08);
+      --border-subtle: 1px solid rgba(0,0,0,0.06);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* HEADER / NAV – keep consistent with other pages */
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: var(--brand-yellow);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: var(--brand-dark);
+      font-size: 1rem;
+    }
+
+    .logo-text {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      padding: 0.4rem 0.95rem;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    }
+
+    nav a:hover {
+      background: rgba(0,0,0,0.04);
+      color: #000;
+      transform: translateY(-1px);
+    }
+
+    nav a.active {
+      background: var(--brand-yellow);
+      color: #000;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* PAGE HERO */
+
+    .page-hero {
+      background: linear-gradient(to right, #f3c553, #f7d47d);
+      padding: 3.5rem 1.5rem 3rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .page-hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .page-hero-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.78rem;
+      color: rgba(0,0,0,0.6);
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      color: #222;
+    }
+
+    .page-hero p {
+      max-width: 640px;
+      color: #3a3120;
+      font-size: 0.98rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-chip {
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.05);
+      color: #4a3c22;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hero-chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--brand-dark);
+    }
+
+    /* MAIN LAYOUT */
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 960px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .content-col {
+      display: grid;
+      gap: 2.2rem;
+    }
+
+    .card-col {
+      display: grid;
+      gap: 1.7rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 1.8rem 1.8rem 2rem;
+      border: var(--border-subtle);
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.1rem;
+    }
+
+    .body-text {
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .body-text p + p {
+      margin-top: 0.7rem;
+    }
+
+    .body-text b {
+      font-weight: 600;
+    }
+
+    .bullet-list {
+      list-style: disc;
+      margin-left: 1.25rem;
+      margin-top: 0.4rem;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .bullet-list li + li {
+      margin-top: 0.25rem;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .metric-card {
+      background: #fffaf1;
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .metric-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .metric-value {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .metric-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.18rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(230,179,51,0.16);
+      color: var(--brand-dark);
+      font-size: 0.78rem;
+      font-weight: 500;
+      margin-top: 0.4rem;
+    }
+
+    /* GALLERY */
+
+    .gallery-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 1.8rem 1.8rem 2rem;
+      border: var(--border-subtle);
+    }
+
+    .gallery-grid {
+      margin-top: 1.1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #f3f3f3;
+      border: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-caption {
+      padding: 0.55rem 0.7rem 0.7rem;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .gallery-img {
+        height: 135px;
+      }
+    }
+
+    /* FOOTER – same vibe as other pages */
+
+    footer {
+      background: var(--brand-dark);
+      color: #eee;
+      padding: 2.5rem 1.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner h4 {
+      margin-bottom: 0.75rem;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .footer-inner a {
+      color: var(--brand-yellow);
+      text-decoration: none;
+    }
+
+    .footer-inner a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      max-width: 1120px;
+      margin: 1.5rem auto 0;
+      font-size: 0.8rem;
+      color: #aaa;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <div class="logo-mark">TB</div>
+      <div class="logo-text">Tone-Blast</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">Services</div>
+    <h1>Abrasive Blasting & Industrial Painting Services</h1>
+    <p>
+      Tone-Blast Engineering provides end-to-end surface preparation and protective coating
+      services for structural steel, industrial equipment, and fabricated components.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-chip">
+        <span class="hero-chip-dot"></span><span>Since 1972</span>
+      </div>
+      <div class="hero-chip">
+        <span class="hero-chip-dot"></span><span>Up to 7&nbsp;m length / 7&nbsp;t per item</span>
+      </div>
+      <div class="hero-chip">
+        <span class="hero-chip-dot"></span><span>Fast turnaround &amp; consistent quality</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <!-- LEFT COLUMN: TEXT CONTENT -->
+  <div class="content-col">
+
+    <!-- Background -->
+    <section class="card">
+      <h2 class="section-title">Background</h2>
+      <div class="body-text">
+        <p>
+          Tone-Blast Engineering is managed and owned by <b>Gordon Tonetti</b>, a qualified
+          mechanical engineer with more than 25 years’ experience in the abrasive blasting
+          and painting industry.
+        </p>
+        <p>
+          The business was established in <b>1972</b> by James Tonetti, father to Gordon.
+          Over the decades, Tone-Blast has built a reputation for quality workmanship,
+          reliable service and fast turnaround times for industrial customers.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services list -->
+    <section class="card">
+      <h2 class="section-title">Core Services</h2>
+      <p class="section-subtitle">
+        Surface preparation and coating tailored to your specification and operating environment.
+      </p>
+      <ul class="bullet-list">
+        <li>Abrasive sandblasting with steel grit</li>
+        <li>Glass bead blasting for finer finishes</li>
+        <li>Application of a wide range of industrial paints and protective coatings</li>
+        <li>Preparation and coating to client-specified standards</li>
+        <li>Surface preparation for corrosion protection and extended service life</li>
+      </ul>
+
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-label">Length Capacity</div>
+          <div class="metric-value">Up to 7&nbsp;m</div>
+          <div class="metric-note">Long components such as beams, ducts and structural members.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Weight Capacity</div>
+          <div class="metric-value">Up to 7&nbsp;tons</div>
+          <div class="metric-note">Heavy fabrications and industrial equipment per item.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Method -->
+    <section class="card">
+      <h2 class="section-title">Method</h2>
+      <div class="body-text">
+        <p>
+          Abrasive blasting (sandblasting) is the controlled cleaning and descaling of metal
+          using a high-velocity stream of abrasive grit. This stream is directed through a nozzle
+          under air pressure to remove rust, mill scale, old paint and surface contamination.
+        </p>
+        <p>
+          Tone-Blast uses <b>steel abrasive grit</b>, which helps reduce dust on the blasted
+          surface and makes it easier to apply subsequent paint systems. The company works
+          closely with customers to develop solutions that match specific service conditions
+          and performance requirements.
+        </p>
+        <p>
+          All blast rooms and paint areas are undercover, ensuring work can continue in
+          all weather conditions and agreed delivery time frames are maintained.
+        </p>
+        <span class="badge">Consistent surface profile for optimal coating performance</span>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="card">
+      <h2 class="section-title">The Tone-Blast Team</h2>
+      <div class="body-text">
+        <p>
+          Tone-Blast has a well-established team of approximately <b>23 employees</b>, including
+          experienced blasters, painters and support staff. Many team members have been with
+          the business for years, contributing to consistent workmanship and deep practical
+          knowledge of industrial coatings.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- RIGHT COLUMN: HIGHLIGHTS + GALLERY -->
+  <div class="card-col">
+
+    <!-- Highlights / Project Types -->
+    <section class="card">
+      <h2 class="section-title">Typical Projects</h2>
+      <p class="section-subtitle">
+        Tone-Blast regularly handles work for engineering, fabrication and industrial clients.
+      </p>
+      <ul class="bullet-list">
+        <li>Structural steelwork, platforms and walkways</li>
+        <li>Conveyors, chutes and material handling equipment</li>
+        <li>Industrial piping, ducts and elbows</li>
+        <li>Machinery guards, housings and frames</li>
+        <li>Transport components and specialised fabrications</li>
+      </ul>
+      <p class="body-text" style="margin-top:0.8rem;">
+        Projects are scheduled to minimise downtime and aligned with customer delivery commitments.
+      </p>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery-card">
+      <h2 class="section-title">Project Gallery</h2>
+      <p class="section-subtitle">
+        A selection of recent abrasive blasting and coating work completed in the Tone-Blast facilities.
+      </p>
+
+      <!--
+        NOTE:
+        Replace the image src values below with your real photos, e.g.
+        assets/img/gallery-1.jpg, gallery-2.jpg, etc.
+      -->
+      <div class="gallery-grid">
+        <figure class="gallery-item">
+          <img src="assets/img/gallery-1.jpg" alt="Blasted and painted steel sections" class="gallery-img">
+          <figcaption class="gallery-caption">Blasted and coated structural steel sections.</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="assets/img/gallery-2.jpg" alt="Large industrial components in the blast room" class="gallery-img">
+          <figcaption class="gallery-caption">Large diameter components prepared in the blast room.</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="assets/img/gallery-3.jpg" alt="Painted components ready for delivery" class="gallery-img">
+          <figcaption class="gallery-caption">Painted items staged and ready for delivery.</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="assets/img/gallery-4.jpg" alt="On-site loading of coated items" class="gallery-img">
+          <figcaption class="gallery-caption">Loaded for transport to client site.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>About Tone-Blast</h4>
+      <p>
+        Established in 1972, Tone-Blast Engineering specialises in abrasive blasting and industrial painting,
+        delivering high-quality surface preparation and protective coatings with reliable turnaround times.
+      </p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>
+        Tel: <a href="tel:+27114526713">011 452 6713</a><br>
+        Email: <a href="mailto:gordon@toneblast.co.za">gordon@toneblast.co.za</a><br>
+        42 Plantation Road, Eastleigh, Edenvale, Jhb
+      </p>
+    </div>
+    <div>
+      <h4>Compliance</h4>
+      <p>
+        <a href="assets/docs/bbbee-certificate.pdf" target="_blank" rel="noopener">
+          BBBEE Certificate (PDF)
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Tone-Blast Engineering. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>

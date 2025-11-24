@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | Tone-Blast Engineering</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brand-yellow: #e6b333;
+      --brand-dark: #1f1f1f;
+      --bg-light: #fffdf2;
+      --text-main: #222;
+      --text-muted: #666;
+      --radius: 14px;
+      --shadow-soft: 0 16px 40px rgba(0,0,0,0.08);
+      --border-subtle: 1px solid rgba(0,0,0,0.06);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* HEADER / NAV (same style as index) */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: var(--brand-yellow);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: var(--brand-dark);
+      font-size: 1rem;
+    }
+
+    .logo-text {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      padding: 0.4rem 0.95rem;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    }
+
+    nav a:hover {
+      background: rgba(0,0,0,0.04);
+      color: #000;
+      transform: translateY(-1px);
+    }
+
+    nav a.active {
+      background: var(--brand-yellow);
+      color: #000;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* PAGE HERO */
+
+    .page-hero {
+      background: linear-gradient(
+          to right,
+          rgba(0,0,0,0.85),
+          rgba(0,0,0,0.65)
+        ),
+        url("assets/img/hero-sandblasting.jpg") center/cover no-repeat;
+      color: #fff;
+      padding: 4rem 1.5rem 3.5rem;
+    }
+
+    .page-hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .page-hero-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-hero p {
+      max-width: 540px;
+      color: rgba(255,255,255,0.82);
+      font-size: 0.98rem;
+    }
+
+    .hero-pills {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-pill {
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 0.35rem 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hero-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--brand-yellow);
+    }
+
+    /* MAIN LAYOUT */
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.1fr);
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 900px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 1.9rem 1.9rem 2.1rem;
+      border: var(--border-subtle);
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    /* CONTACT DETAILS COLUMN */
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .detail-group h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .detail-group p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+    }
+
+    .detail-group a {
+      color: var(--brand-dark);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .detail-group a:hover {
+      border-bottom-color: var(--brand-yellow);
+    }
+
+    .detail-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.4rem;
+    }
+
+    .detail-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .detail-label {
+      width: 3rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(230,179,51,0.12);
+      color: var(--brand-dark);
+      font-size: 0.78rem;
+      font-weight: 500;
+      margin-top: 0.4rem;
+    }
+
+    /* FORM COLUMN (Formspree) */
+
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    label {
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.14);
+      padding: 0.65rem 0.8rem;
+      font-family: inherit;
+      font-size: 0.94rem;
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+      background: #fcfcfc;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--brand-yellow);
+      box-shadow: 0 0 0 3px rgba(230,179,51,0.25);
+      background: #fff;
+    }
+
+    .field-hint {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .btn-row {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.92rem;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--brand-yellow);
+      color: #000;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.24);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid rgba(0,0,0,0.12);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--brand-yellow);
+      color: var(--brand-dark);
+    }
+
+    .btn-ghost span {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* MAP SECTION */
+
+    .map-section {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      border: var(--border-subtle);
+      background: #fff;
+    }
+
+    .map-header {
+      padding: 1.2rem 1.6rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .map-header h2 {
+      font-size: 1.1rem;
+    }
+
+    .map-header p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .map-embed {
+      width: 100%;
+      height: 320px;
+      border: 0;
+      display: block;
+    }
+
+    @media (max-width: 640px) {
+      .map-embed {
+        height: 260px;
+      }
+    }
+
+    /* FOOTER (same vibe as index) */
+
+    footer {
+      background: var(--brand-dark);
+      color: #eee;
+      padding: 2.5rem 1.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner h4 {
+      margin-bottom: 0.75rem;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .footer-inner a {
+      color: var(--brand-yellow);
+      text-decoration: none;
+    }
+
+    .footer-inner a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      max-width: 1120px;
+      margin: 1.5rem auto 0;
+      font-size: 0.8rem;
+      color: #aaa;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <div class="logo-mark">TB</div>
+      <div class="logo-text">Tone-Blast</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div>
+      <div class="page-hero-eyebrow">Contact</div>
+      <h1>Get in Touch with Tone-Blast Engineering</h1>
+      <p>
+        Discuss a new project, request a quotation, or ask about our abrasive blasting and industrial
+        painting capabilities. Our team will respond as quickly as possible during business hours.
+      </p>
+      <div class="hero-pills">
+        <div class="hero-pill">
+          <span class="hero-pill-dot"></span>
+          <span>Fast turnaround</span>
+        </div>
+        <div class="hero-pill">
+          <span class="hero-pill-dot"></span>
+          <span>Over 25 years’ experience</span>
+        </div>
+        <div class="hero-pill">
+          <span class="hero-pill-dot"></span>
+          <span>Based in Edenvale, Johannesburg</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="contact-layout">
+    <!-- LEFT: CONTACT DETAILS -->
+    <section class="card contact-details">
+      <div>
+        <h2 class="section-title">Contact Details</h2>
+        <p class="section-subtitle">
+          Reach us via phone or email, or complete the enquiry form alongside for project-related questions.
+        </p>
+      </div>
+
+      <div class="detail-group">
+        <h3>Call or Email</h3>
+        <ul class="detail-list">
+          <li>
+            <span class="detail-label">Tel</span>
+            <span><a href="tel:+27114526713">011 452 6713</a></span>
+          </li>
+          <li>
+            <span class="detail-label">Fax</span>
+            <span>011 609 1916</span>
+          </li>
+          <li>
+            <span class="detail-label">Email</span>
+            <span><a href="mailto:gordon@toneblast.co.za">gordon@toneblast.co.za</a></span>
+          </li>
+        </ul>
+        <div class="badge">Best for quotations and technical queries</div>
+      </div>
+
+      <div class="detail-group">
+        <h3>Physical Address</h3>
+        <p>
+          42 Plantation Road, Eastleigh<br>
+          Edenvale, Johannesburg, South Africa
+        </p>
+        <p class="field-hint" style="margin-top:0.4rem;">
+          Collections and deliveries by prior arrangement.
+        </p>
+      </div>
+
+      <div class="detail-group">
+        <h3>Operating Hours</h3>
+        <p>
+          Monday – Friday: 08:00 – 17:00<br>
+          Saturdays &amp; public holidays: By arrangement
+        </p>
+      </div>
+    </section>
+
+    <!-- RIGHT: ENQUIRY FORM (FORMSPREE FRONT-END ONLY) -->
+    <section class="card">
+      <h2 class="section-title">Send an Enquiry</h2>
+      <p class="section-subtitle">
+        Use the form below to send a brief description of your project. Please include contact details so we can get back to you.
+      </p>
+
+      <!-- IMPORTANT:
+           Replace the "action" value with your real Formspree endpoint.
+           Example after setup: action="https://formspree.io/f/abcd1234"
+      -->
+      <form action="https://formspree.io/f/YOUR_FORMSPREE_ID_HERE" method="POST">
+        <div class="field-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name">
+        </div>
+
+        <div class="field-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="_replyto" required placeholder="you@example.com">
+        </div>
+
+        <div class="field-group">
+          <label for="phone">Contact Number</label>
+          <input type="text" id="phone" name="phone" placeholder="+27...">
+          <p class="field-hint">Include your area code so we can reach you easily.</p>
+        </div>
+
+        <div class="field-group">
+          <label for="message">Project Details</label>
+          <textarea id="message" name="message" required placeholder="Tell us briefly about the work required (e.g. item size, surface, coating, timing)..."></textarea>
+        </div>
+
+        <div class="btn-row">
+          <button type="submit" class="btn btn-primary">Submit enquiry</button>
+
+          <a class="btn btn-ghost" href="mailto:gordon@toneblast.co.za?subject=Tone-Blast enquiry">
+            or email <span>gordon@toneblast.co.za</span>
+          </a>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <!-- MAP SECTION -->
+  <section class="map-section">
+    <div class="map-header">
+      <div>
+        <h2>Our Location</h2>
+        <p>Find Tone-Blast Engineering in Eastleigh, Edenvale.</p>
+      </div>
+      <p>42 Plantation Road, Eastleigh, Edenvale, Johannesburg</p>
+    </div>
+
+    <!--
+      TODO: Replace this iframe with the real Google Maps embed code:
+      1. Go to Google Maps
+      2. Search for: 42 Plantation Road, Eastleigh, Edenvale, South Africa
+      3. Click "Share" → "Embed a map"
+      4. Copy the <iframe> they give you
+      5. Paste it here, replacing the whole <iframe> below
+    -->
+    <iframe
+      class="map-embed"
+      src="https://www.google.com/maps/embed?pb=YOUR_GOOGLE_MAPS_EMBED_CODE_HERE"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>About Tone-Blast</h4>
+      <p>
+        Established in 1972, Tone-Blast Engineering specialises in abrasive blasting and industrial painting,
+        delivering high-quality surface preparation and protective coatings with reliable turnaround times.
+      </p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>
+        Tel: <a href="tel:+27114526713">011 452 6713</a><br>
+        Email: <a href="mailto:gordon@toneblast.co.za">gordon@toneblast.co.za</a><br>
+        42 Plantation Road, Eastleigh, Edenvale, Jhb
+      </p>
+    </div>
+    <div>
+      <h4>Compliance</h4>
+      <p>
+        <a href="assets/docs/bbbee-certificate.pdf" target="_blank" rel="noopener">
+          BBBEE Certificate (PDF)
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Tone-Blast Engineering. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
