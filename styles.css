@@ -675,6 +675,75 @@ textarea:focus {
   }
 }
 
+/* ==========================================
+   Improved Contact Card Styling
+   ========================================== */
+
+.card.contact-card {
+  padding: 2.2rem 2.2rem 2.4rem;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  border: var(--border-subtle);
+}
+
+.card.contact-card .section-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.card.contact-card .section-subtitle {
+  margin-bottom: 1.4rem;
+  line-height: 1.55;
+}
+
+.card.contact-card .detail-group {
+  padding: 1.1rem 1.3rem;
+  background: #fffdf7;
+  border: 1px solid rgba(0,0,0,0.04);
+  border-radius: 14px;
+  margin-bottom: 1.1rem;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+}
+
+.card.contact-card .detail-group h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.45rem;
+  font-weight: 600;
+}
+
+.card.contact-card .detail-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.card.contact-card .detail-list li:last-child {
+  border-bottom: none;
+}
+
+.card.contact-card .detail-label {
+  width: auto;
+  font-weight: 600;
+  color: #222;
+  font-size: 0.95rem;
+}
+
+.card.contact-card .badge {
+  margin-top: 0.7rem;
+  display: inline-block;
+}
+
+.card.contact-card .detail-group p {
+  margin: 0.2rem 0;
+  line-height: 1.5;
+}
+
+.card.contact-card .detail-group + .detail-group {
+  margin-top: 1.3rem;
+}
+
 /* =========================
    Footer
    ========================= */
