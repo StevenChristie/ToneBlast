@@ -35,7 +35,8 @@
       line-height: 1.6;
     }
 
-    /* HEADER / NAV (same style as index) */
+    /* HEADER / NAV */
+
     header {
       background: #fff;
       border-bottom: 1px solid #eee;
@@ -122,7 +123,7 @@
           rgba(0,0,0,0.85),
           rgba(0,0,0,0.65)
         ),
-        url("assets/img/hero-sandblasting.jpg") center/cover no-repeat;
+        url("images/hero-sandblasting.jpg") center/cover no-repeat;
       color: #fff;
       padding: 4rem 1.5rem 3.5rem;
     }
@@ -276,7 +277,7 @@
       margin-top: 0.4rem;
     }
 
-    /* FORM COLUMN (Formspree) */
+    /* FORM */
 
     form {
       display: grid;
@@ -416,7 +417,7 @@
       }
     }
 
-    /* FOOTER (same vibe as index) */
+    /* FOOTER */
 
     footer {
       background: var(--brand-dark);
@@ -560,10 +561,7 @@
         Use the form below to send a brief description of your project. Please include contact details so we can get back to you.
       </p>
 
-      <!-- IMPORTANT:
-           Replace the "action" value with your real Formspree endpoint.
-           Example after setup: action="https://formspree.io/f/abcd1234"
-      -->
+      <!-- Replace action URL with your actual Formspree endpoint -->
       <form action="https://formspree.io/f/YOUR_FORMSPREE_ID_HERE" method="POST">
         <div class="field-group">
           <label for="name">Full Name</label>
@@ -607,17 +605,10 @@
       <p>42 Plantation Road, Eastleigh, Edenvale, Johannesburg</p>
     </div>
 
-    <!--
-      TODO: Replace this iframe with the real Google Maps embed code:
-      1. Go to Google Maps
-      2. Search for: 42 Plantation Road, Eastleigh, Edenvale, South Africa
-      3. Click "Share" → "Embed a map"
-      4. Copy the <iframe> they give you
-      5. Paste it here, replacing the whole <iframe> below
-    -->
+    <!-- Embedded map for 42 Plantation Road, Eastleigh, Edenvale -->
     <iframe
       class="map-embed"
-      src="https://www.google.com/maps/embed?pb=YOUR_GOOGLE_MAPS_EMBED_CODE_HERE"
+      src="https://www.google.com/maps?q=42+Plantation+Rd,+Eastleigh,+Edenvale,+1609&output=embed"
       allowfullscreen=""
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade">
