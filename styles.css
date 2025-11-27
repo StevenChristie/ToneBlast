@@ -412,140 +412,187 @@ main {
 .home-contact-strip strong {
   font-weight: 600;
 }
+/* =========================
+   SERVICE PAGE — HERO TAGS
+   ========================= */
+
+.services-tags {
+  margin-top: 1.3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.services-tag {
+  background: #f9f4dd;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: #222;
+}
 
 /* =========================
-   Services page (cards & layout)
+   SERVICE PAGE — MAIN LAYOUT
    ========================= */
 
 .services-main {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 3rem auto 5rem;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.6rem;
 }
 
-@media (max-width: 960px) {
-  .services-main {
+/* Shared card style used on all service sections */
+.card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 2rem 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.section-subtitle {
+  margin-top: 0.5rem;
+  color: #666;
+  font-size: 1rem;
+}
+
+.body-text p + p {
+  margin-top: 0.8rem;
+}
+
+.bullet-list {
+  margin-top: 1.1rem;
+  padding-left: 1.2rem;
+}
+
+.bullet-list li {
+  margin-bottom: 0.6rem;
+}
+
+/* =====================================
+   SERVICE PAGE — BACKGROUND + WHY GRID
+   ===================================== */
+
+.services-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
+}
+
+@media (max-width: 900px) {
+  .services-info-grid {
     grid-template-columns: 1fr;
   }
 }
 
-.content-col {
+/* =========================
+   SERVICE PAGE — CORE SERVICES
+   ========================= */
+
+.core-services-layout {
   display: grid;
-  gap: 2.2rem;
+  grid-template-columns: 1.5fr 1.1fr;
+  gap: 1.8rem;
 }
 
-.card-col {
-  display: grid;
-  gap: 1.7rem;
-  align-content: start;
+@media (max-width: 900px) {
+  .core-services-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
-.card {
-  background: #ffffff;
-  border-radius: var(--radius-lg);
-  padding: 1.9rem 1.8rem 2.1rem;
-  box-shadow: var(--shadow-soft);
-  border: var(--border-subtle);
-}
+/* Metrics inside Core Services */
 
-.section-title {
-  font-size: 1.25rem;
-  margin-bottom: 0.2rem;
-}
-
-.section-subtitle {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  margin-bottom: 0.9rem;
-}
-
-.body-text p + p {
-  margin-top: 0.7rem;
-}
-
-.bullet-list {
-  padding-left: 1.1rem;
-  font-size: 0.95rem;
-  color: var(--text-main);
-}
-
-.bullet-list li + li {
-  margin-top: 0.25rem;
-}
-
-/* Metrics */
-
-.metrics-grid {
+.core-metrics {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 0.9rem;
 }
 
 .metric-card {
-  background: #fffaf1;
-  border-radius: 12px;
-  padding: 1rem 1.1rem;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: #fdf8e9;
+  padding: 1.2rem;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .metric-label {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--text-muted);
-  margin-bottom: 0.35rem;
+  color: #555;
+  font-weight: 600;
 }
 
 .metric-value {
-  font-size: 1.1rem;
+  margin-top: 0.2rem;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
 .metric-note {
-  margin-top: 0.2rem;
-  font-size: 0.8rem;
-  color: var(--text-muted);
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: #555;
 }
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.28rem 0.8rem;
-  border-radius: 999px;
-  background: rgba(230, 179, 51, 0.16);
-  color: #4a3c22;
-  font-size: 0.78rem;
-  margin-top: 0.7rem;
+/* =========================
+   SERVICE PAGE — GALLERY
+   ========================= */
+
+.gallery-strip {
+  background: #f8e8aa;
+  padding: 1.8rem;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+  text-align: center;
 }
 
-/* Gallery */
-
-.gallery {
+.gallery-grid {
+  margin-top: 1.4rem;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.6rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================
+   SERVICE PAGE — CTA BUTTON
+   ========================= */
+
+.services-cta-strip {
+  text-align: center;
   margin-top: 1rem;
 }
 
-.gallery img {
-  width: 100%;
-  display: block;
+/* Neutral button for gallery */
+.btn-secondary {
+  background: #e1e1e1;
+  color: #222;
   border-radius: 10px;
-  object-fit: cover;
-  max-height: 130px;
-}
-
-.gallery-caption {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-top: 0.4rem;
-}
-
-@media (max-width: 640px) {
-  .gallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  padding: 0.7rem 2.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 /* =========================
