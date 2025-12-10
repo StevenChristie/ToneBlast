@@ -655,58 +655,6 @@ main {
   color: var(--text-muted);
 }
 
-/* Contact Form */
-
-form {
-  display: grid;
-  gap: 1rem;
-  font-size: 0.95rem;
-}
-
-.field-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-label {
-  font-size: 0.86rem;
-  font-weight: 500;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-  border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  padding: 0.65rem 0.8rem;
-  font-family: inherit;
-  font-size: 0.94rem;
-  outline: none;
-  transition: border-color 0.18s ease, box-shadow 0.18s ease;
-  background: #fcfcfa;
-}
-
-textarea {
-  min-height: 130px;
-  resize: vertical;
-}
-
-input:focus,
-textarea:focus {
-  border-color: var(--brand-yellow);
-  box-shadow: 0 0 0 3px rgba(230, 179, 51, 0.25);
-  background: #fff;
-}
-
-.btn-row {
-  margin-top: 0.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-  align-items: center;
-}
-
 /* Map */
 
 .map-section {
@@ -743,9 +691,9 @@ textarea:focus {
   }
 }
 
-/* ==========================================
+/* =====================================
    Improved Contact Card Styling
-   ========================================== */
+   ===================================== */
 
 .card.contact-card {
   padding: 2.2rem 2.2rem 2.4rem;
@@ -780,24 +728,6 @@ textarea:focus {
   font-weight: 600;
 }
 
-.card.contact-card .detail-list li {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.35rem 0;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-.card.contact-card .detail-list li:last-child {
-  border-bottom: none;
-}
-
-.card.contact-card .detail-label {
-  width: auto;
-  font-weight: 600;
-  color: #222;
-  font-size: 0.95rem;
-}
-
 .card.contact-card .badge {
   margin-top: 0.7rem;
   display: inline-block;
@@ -810,6 +740,63 @@ textarea:focus {
 
 .card.contact-card .detail-group + .detail-group {
   margin-top: 1.3rem;
+}
+
+/* =====================================
+   NEW: Primary Contact Card Styling (The right column)
+   ===================================== */
+
+.primary-contact-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2.2rem;
+  background: var(--brand-dark);
+  color: #fff;
+  border: none;
+}
+
+.primary-contact-card .section-title {
+  color: #fff;
+  font-size: 1.6rem;
+}
+
+.primary-contact-card .section-subtitle {
+  color: var(--brand-yellow-soft);
+  margin-bottom: 1.8rem;
+  font-size: 1rem;
+}
+
+.primary-detail {
+  margin-bottom: 1.4rem;
+}
+
+.primary-label {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.primary-value {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--brand-yellow);
+  text-decoration: none;
+  border-bottom: 2px solid rgba(230, 179, 51, 0.5);
+  transition: border-bottom-color 0.2s ease;
+  display: inline-block;
+}
+
+.primary-value:hover {
+  border-bottom-color: var(--brand-yellow);
+}
+
+.primary-contact-card .field-hint {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  margin-top: auto;
 }
 
 /* =========================
@@ -826,7 +813,8 @@ footer {
   max-width: 1120px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  /* Adjust layout to two wider columns */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   font-size: 0.9rem;
 }
